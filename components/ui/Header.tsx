@@ -16,7 +16,6 @@ const navLinks = [
    { href: "/reportes", label: "reportes", icon: BarChart3 },
    { href: "/devoluciones", label: "devoluciones", icon: RotateCcw },
    { href: "/rutas", label: "rutas", icon: Store },
-   
    { href: "/descuentos", label: "descuentos", icon: Tag },
    
 ] 
@@ -98,5 +97,6 @@ export default function Header() {
 }
 
          
+   
    
    
