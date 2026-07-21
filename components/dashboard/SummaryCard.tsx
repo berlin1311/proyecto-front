@@ -12,16 +12,22 @@ export default function SummaryCard({
   icono: Icon,
 }: SummaryCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-md p-5 border">
-        <div className="mb-3">
-            <Icon size={32} className="text-pink-500" />
+    <div className="bg-white rounded-2xl shadow-md p-6 border p-5 hover:shadow-lg transition-shadow duration-300">
+        <div className="flex items-center justify-between">
+
+          <div>
+            <p className="text-sm text-gray-500 capitalize">
+              {titulo}
+              </p>
+
+            <h2 className="text-4xl font-bold mt-2 text-800 mt-3">
+              {valor}
+              </h2>
+          </div>
+          <div className="w-16 h-16 rounded-2xl bg-pink-100 flex items-center justify-center">
+            <Icon size={30} className="text-pink-600" />
         </div>
-        <h3 className="text-sm text-gray-500">
-            {titulo}
-            </h3>
-        <p className="text-2xl font-bold mt-2">
-            {valor}
-            </p>
+      </div>
     </div>
   );
 }
