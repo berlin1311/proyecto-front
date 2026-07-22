@@ -1,7 +1,32 @@
+"use client";
+import { useState } from "react";
+
 export default function VentasPage() {
+
+    const [ mostrarFormulario, setMostrarFormulario] =useState(false);
+        
+
+        const [ cliente, setCliente] =useState("");
+        const [ producto, setProducto] =useState("");
+        const [ cantidad, setCantidad] =useState(1);
+        const [ precio, setPrecio] =useState(0);
+        
+        const total= cantidad*precio;
+
+        function guardarVenta () {
+            console.log ({
+              cliente,
+              producto,
+              cantidad,
+              precio,
+              total,  
+            });
+            alert("venta registrada correctamente")
+        }
+
     return (
         <main className="p-6">
-           
+            
                 {/*encabezado*/}
 
             <div className="flex items-center justify-between mb-6">
@@ -16,10 +41,115 @@ export default function VentasPage() {
                     </p>
                 </div>
 
-                <button className="bg-pink-500 text-white px-5 py-3 rounded-xl hover:bg-pink-600">
+                <button className="bg-pink-500 text-white px-5 py-3 rounded-xl hover:bg-pink-600"
+                    onClick={() => setMostrarFormulario (true)}
+                    
+                     >
                     + Nueva Venta
                 </button>
+     
+                { mostrarFormulario && (
+                    <div className="bg-white rounded-xl shadow-md p-6 mb-6"> 
 
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-bold">
+                            Nueva Venta
+                        </h2>
+                        <button
+                        onClick={() => setMostrarFormulario(false)}
+                        className="text-gray-500 hover:text-gray-700">
+                            x
+                        </button>
+
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                        <div>
+                            <label className="block mb-2 font-medium">
+                                Cliente
+                            </label>
+
+                            <select 
+                            value={cliente}
+                            onChange={(e)=> setCliente(e.target.value)}
+                            className="w-full border rounded-lg p-3"
+                            >
+
+                                <option value=""> Seleccionar Cliente</option>
+                                <option> Tienda la Esperanza</option>
+                                <option> Tienda el Sol</option>
+                                <option> Tienda el Portal</option>
+                            </select>
+                        </div>
+
+                        
+                        <div>
+                            <label className="block mb-2 font-medium">
+                                Producto
+                            </label>
+
+                            <select 
+                            value={producto}
+                            onChange={(e)=> setProducto(e.target.value)}
+                            className="w-full border rounded-lg p-3"
+                            >
+
+                                <option value=""> Seleccionar el Producto</option>
+                                <option> Jabon en barra </option>
+                                <option> bombombum </option>
+                                <option>Galleta oreo </option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label className="block mb-2 font-medium">
+                                Cantidad 
+                            </label>
+                            
+                            <input
+                            type="number"
+                            min="1"
+                            value={cantidad}
+                            onChange={(e)=> setCantidad(Number(e.target.value))}
+                            className="w-full border rounded-lg p-3"
+                    
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block mb-2 font-medium">
+                                Precio
+                            </label>
+                            <input 
+                            type="number"
+                            value={precio}
+                            onChange={(e) =>setPrecio(Number(e.target.value))}
+                            className="w-full border rounded-lg p-3"
+                            />
+                        </div>
+                        <div>
+                            <label className="block mb-2 font-medium">
+                                Total
+                            </label>
+
+                            <input
+                            type="text"
+                            value= {`$${total.toLocaleString("es-CO")}`}
+                            readOnly
+                            className="w-full border rounded-lg p-3 bg-gray-100"
+                            />
+                        </div> 
+
+                    </div>
+                    <button
+                    onClick={guardarVenta}
+                    className="mt-6 bg-pink-500 text-white px-5 py-3 rounded-xl hover:bg-pink-600"
+                    >
+                        Guardar Venta
+                    </button>
+                    </div>
+                ) }
+          
                     {/*Buscador*/}
             </div>
             <div className="bg-white rounded-xl shadow-md p-4 mb-6">
