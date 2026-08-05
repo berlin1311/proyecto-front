@@ -1,31 +1,52 @@
-export default function Navbar(){
-    return (
-        <nav className="w-full bg-white shadow-sm">
-            <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+export default function Navbar() {
+  return (
+    <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
 
-                <h1 className="text-2xl font-bold text-pink-500">
-                    Sistema de Gestion de Ventas
-                </h1>
+      <div className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
 
-                <div className="flex items-center gap-8">
-                    <a href="#" className="text-gray-700 hover:text-oink-500">
-                        Inicio
-                    </a>
+        {/* Logo */}
+        <div className="flex items-center gap-4">
 
-                     <a href="#" className="text-gray-700 hover:text-oink-500">
-                        Caracteristica
-                    </a>
+          <img
+            src="/logodistribuidora.png"
+            alt="Logo"
+            className="w-14 h-14 object-contain"
+          />
 
-                     <a href="#" className="text-gray-700 hover:text-oink-500">
-                        Contacto
-                    </a>
-                <button className="bg-pink-500 text-white px-5 py-2 rounded-lg hover:bg-pink-600">
-                    Iniciar sesión
-                </button> 
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">
+              Distribuidora M.C
+            </h1>
 
-                </div>
-            </div>
+            <p className="text-sm text-gray-500">
+              Sistema de Gestión de Ventas
+            </p>
+          </div>
+
+        </div>
+
+        {/* Menú */}
+        <nav className="flex">
+
+          <a
+            href="#inicio"
+            className=" mr-10 font-medium text-gray-700 hover:text-pink-600 transition"
+          >
+            Inicio
+          </a>
+   
+
+          <a
+            href="#contacto"
+            className="font-medium text-gray-700 hover:text-pink-600 transition"
+          >
+            Contacto
+          </a>
 
         </nav>
-    );
+
+      </div>
+
+    </header>
+  );
 }
